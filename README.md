@@ -33,7 +33,7 @@ A modern, full-stack Library Management System built with the MERN stack (MongoD
 ### Frontend
 - **React 18** - UI library
 - **Vite** - Build tool and dev server
-- **Tailwind CSS v3.4.17** - Styling framework
+- **Tailwind CSS v4.1** - Styling framework
 - **React Router DOM** - Client-side routing
 - **Axios** - HTTP client
 - **React Hot Toast** - Notifications
