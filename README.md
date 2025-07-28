@@ -52,7 +52,7 @@ Before running this application, make sure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/PLP-MERN-Stack-Development/libraryMS.git
+git clone https://github.com/OmolloRovy/Library-Management-System.git
 cd libraryMS
 ```
 
