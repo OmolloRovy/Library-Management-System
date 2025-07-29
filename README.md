@@ -89,7 +89,7 @@ Open a new terminal window:
 cd frontend
 
 # Install dependencies
-npm install
+pnpm install
 
 # Create environment file (optional)
 # Create a .env file in the frontend directory with:
