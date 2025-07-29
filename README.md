@@ -97,7 +97,7 @@ pnpm install
 # VITE_APP_NAME=Library Management System
 
 # Start the frontend development server
-npm run dev
+pnpm run dev
 ```
 
 The frontend development server will start on http://localhost:5173
