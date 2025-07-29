@@ -45,7 +45,7 @@ Before running this application, make sure you have the following installed:
 
 - **Node.js** (v14 or higher)
 - **MongoDB** (local installation or MongoDB Atlas)
-- **npm** or **yarn** package manager
+- **pnpm** or **yarn** package manager
 
 ## Installation & Setup
 
@@ -63,7 +63,7 @@ cd libraryMS
 cd backend
 
 # Install dependencies
-npm install
+pnpm install
 
 # Create environment file
 cp .env.example .env
@@ -75,7 +75,7 @@ cp .env.example .env
 # NODE_ENV=development
 
 # Start the backend server
-npm start
+pnpm start
 ```
 
 The backend server will start on http://localhost:5000
@@ -89,7 +89,7 @@ Open a new terminal window:
 cd frontend
 
 # Install dependencies
-npm install
+pnpm install
 
 # Create environment file (optional)
 # Create a .env file in the frontend directory with:
@@ -97,7 +97,7 @@ npm install
 # VITE_APP_NAME=Library Management System
 
 # Start the frontend development server
-npm run dev
+pnpm run dev
 ```
 
 The frontend development server will start on http://localhost:5173
@@ -196,10 +196,10 @@ library-management-system/
 cd backend
 
 # Run in development mode with auto-restart
-npm run dev
+pnpm run dev
 
 # Run in production mode
-npm start
+pnpm start
 ```
 
 ### Frontend Development
@@ -208,16 +208,16 @@ npm start
 cd frontend
 
 # Start development server
-npm run dev
+pnpm run dev
 
 # Build for production
-npm run build
+pnpm run build
 
 # Preview production build
-npm run preview
+pnpm run preview
 
 # Run linting
-npm run lint
+pnpm run lint
 ```
 
 ## Styling with Tailwind CSS
@@ -292,10 +292,10 @@ VITE_APP_NAME=Library Management System
 
 ```bash
 # Build frontend for production
-cd frontend && npm run build
+cd frontend && pnpm run build
 
 # Start backend in production
-cd backend && npm start
+cd backend && pnpm start
 ```
 
 ## Contributing
