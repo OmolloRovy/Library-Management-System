@@ -199,7 +199,7 @@ cd backend
 pnpm run dev
 
 # Run in production mode
-npm start
+pnpm start
 ```
 
 ### Frontend Development
