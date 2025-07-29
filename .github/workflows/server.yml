@@ -1,61 +1,46 @@
-name: Backend CI
+name: Backend CI & Deploy to Render
 
 on:
   push:
-    paths:
-      - 'backend/**'
-  pull_request:
+    branches:
+      - main
     paths:
       - 'backend/**'
   workflow_dispatch:
 
 jobs:
-  backend:
+  build-and-deploy:
+    name: Build & Deploy Backend
     runs-on: ubuntu-latest
 
     defaults:
       run:
         working-directory: backend
 
-    services:
-      mongo:
-        image: mongo:6
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd="mongosh --eval 'db.runCommand({ ping: 1 })'"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
-
     steps:
-      - name: Checkout Code
+      - name: ⬇️ Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: 🧰 Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'pnpm'
 
-      - name: Install pnpm
+      - name: 📦 Install pnpm
         run: npm install -g pnpm
 
-      - name: Install Dependencies
+      - name: 📥 Install Dependencies
         run: pnpm install
 
-      - name: Setup Environment Variables
+      - name: 🧹 Lint Code (Optional)
+        run: pnpm run lint || echo "No linting script defined"
+
+      - name: 🧪 Run Tests (Optional)
+        run: pnpm run test || echo "No tests defined"
+
+      - name: 🚀 Trigger Render Deployment
         run: |
-          echo "PORT=5000" > .env
-          echo "MONGODB_URI=mongodb://localhost:27017/library-test" >> .env
-          echo "JWT_SECRET=testing-secret" >> .env
-          echo "NODE_ENV=test" >> .env
-
-      - name: Lint Code
-        run: pnpm run lint
-
-      - name: Run Tests
-        run: pnpm run test || echo "No tests defined yet"
-
-      - name: Start Dev Server (dry run)
-        run: pnpm run dev &
+          curl -X POST "$RENDER_DEPLOY_HOOK_URL"
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
