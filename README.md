@@ -217,7 +217,7 @@ pnpm run build
 pnpm run preview
 
 # Run linting
-npm run lint
+pnpm run lint
 ```
 
 ## Styling with Tailwind CSS
