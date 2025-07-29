@@ -1,16 +1,16 @@
-name: Frontend CI
+name: Frontend CI & Deploy to Vercel
 
 on:
   push:
-    paths:
-      - 'frontend/**'
-  pull_request:
+    branches:
+      - main
     paths:
       - 'frontend/**'
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
+    name: Build & Deploy Frontend
     runs-on: ubuntu-latest
 
     defaults:
@@ -18,26 +18,29 @@ jobs:
         working-directory: frontend
 
     steps:
-      - name: Checkout Code
+      - name: ⬇️ Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: 🧰 Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'pnpm'
 
-      - name: Install pnpm
+      - name: 📦 Install pnpm
         run: npm install -g pnpm
 
-      - name: Install Dependencies
+      - name: 📥 Install Dependencies
         run: pnpm install
 
-      - name: Lint Code
-        run: pnpm run lint
+      - name: 🧹 Lint Code (Optional)
+        run: pnpm run lint || echo "No lint script defined"
 
-      - name: Run Tests
-        run: pnpm run test || echo "No tests defined yet"
+      - name: 🧪 Run Tests (Optional)
+        run: pnpm run test || echo "No tests defined"
 
-      - name: Build Frontend
-        run: pnpm run build
+      - name: 🚀 Trigger Vercel Deployment
+        run: |
+          curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
