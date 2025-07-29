@@ -63,7 +63,7 @@ cd libraryMS
 cd backend
 
 # Install dependencies
-npm install
+pnpm install
 
 # Create environment file
 cp .env.example .env
