@@ -35,7 +35,9 @@ jobs:
             cd backend
             pnpm ci
       - name: 🧪 Run Tests
-        run: pnpm run test || true
+        run:
+            cd backend
+            pnpm run test || true
 
       - name: 🚀 Trigger Render Deployment
         run: |
