@@ -1,6 +1,6 @@
 # Library Management System
 
-A modern, full-stack Library Management System built with the MERN stack (MongoDB, Express.js, React, Node.js) featuring beautiful UI with Tailwind CSS v3.4.17.
+A modern, full-stack Library Management System built with the MERN stack (MongoDB, Express.js, React, Node.js) featuring beautiful UI with Tailwind CSS v 4.1.
 
 ## Features
 
@@ -33,7 +33,7 @@ A modern, full-stack Library Management System built with the MERN stack (MongoD
 ### Frontend
 - **React 18** - UI library
 - **Vite** - Build tool and dev server
-- **Tailwind CSS v3.4.17** - Styling framework
+- **Tailwind CSS v4.1** - Styling framework
 - **React Router DOM** - Client-side routing
 - **Axios** - HTTP client
 - **React Hot Toast** - Notifications
@@ -52,7 +52,7 @@ Before running this application, make sure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/PLP-MERN-Stack-Development/libraryMS.git
+git clone https://github.com/OmolloRovy/Library-Management-System.git
 cd libraryMS
 ```
 
