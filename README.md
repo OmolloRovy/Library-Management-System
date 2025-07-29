@@ -45,7 +45,7 @@ Before running this application, make sure you have the following installed:
 
 - **Node.js** (v14 or higher)
 - **MongoDB** (local installation or MongoDB Atlas)
-- **npm** or **yarn** package manager
+- **pnpm** or **yarn** package manager
 
 ## Installation & Setup
 
