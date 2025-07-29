@@ -211,7 +211,7 @@ cd frontend
 pnpm run dev
 
 # Build for production
-npm run build
+pnpm run build
 
 # Preview production build
 npm run preview
