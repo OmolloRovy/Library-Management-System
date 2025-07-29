@@ -75,7 +75,7 @@ cp .env.example .env
 # NODE_ENV=development
 
 # Start the backend server
-npm start
+pnpm start
 ```
 
 The backend server will start on http://localhost:5000
