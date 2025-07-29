@@ -11,7 +11,7 @@ on:
 jobs:
   build-and-deploy:
     name: Build & Deploy Backend
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     defaults:
       run:
