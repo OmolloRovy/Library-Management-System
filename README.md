@@ -292,7 +292,7 @@ VITE_APP_NAME=Library Management System
 
 ```bash
 # Build frontend for production
-cd frontend && npm run build
+cd frontend && pnpm run build
 
 # Start backend in production
 cd backend && npm start
