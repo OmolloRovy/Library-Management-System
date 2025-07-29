@@ -31,13 +31,11 @@ jobs:
         run: npm install -g pnpm
 
       - name: 📥 Install Dependencies
-        run: pnpm install
-
-      - name: 🧹 Lint Code (Optional)
-        run: pnpm run lint || echo "No linting script defined"
-
-      - name: 🧪 Run Tests (Optional)
-        run: pnpm run test || echo "No tests defined"
+        run: |
+            cd backend
+            pnpm ci
+      - name: 🧪 Run Tests
+        run: pnpm run test || true
 
       - name: 🚀 Trigger Render Deployment
         run: |
