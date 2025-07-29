@@ -196,7 +196,7 @@ library-management-system/
 cd backend
 
 # Run in development mode with auto-restart
-npm run dev
+pnpm run dev
 
 # Run in production mode
 npm start
