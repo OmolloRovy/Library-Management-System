@@ -214,7 +214,7 @@ pnpm run dev
 pnpm run build
 
 # Preview production build
-npm run preview
+pnpm run preview
 
 # Run linting
 npm run lint
