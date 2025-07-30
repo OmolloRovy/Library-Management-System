@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'frontend/**'
+      - 'client/**'
   workflow_dispatch:
 
 jobs:
@@ -13,34 +13,37 @@ jobs:
     name: Build & Deploy Frontend
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: frontend
-
     steps:
-      - name: ⬇️ Checkout Code
+      - name: ⬇️ Checkout code
         uses: actions/checkout@v3
 
       - name: 🧰 Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: 'npm'
 
-      - name: 📦 Install pnpm
-        run: npm install -g pnpm
+      - name: 📥 Install dependencies
+        working-directory: client
+        run: npm ci
 
-      - name: 📥 Install Dependencies
-        run: pnpm install
+      - name: 🧪 Run Tests
+        working-directory: client
+        run: npm run test || echo "No tests defined"
 
-      - name: 🧹 Lint Code (Optional)
-        run: pnpm run lint || echo "No lint script defined"
+      - name: 🛠️ Build Project
+        working-directory: client
+        run: npm run build
 
-      - name: 🧪 Run Tests (Optional)
-        run: pnpm run test || echo "No tests defined"
-
-      - name: 🚀 Trigger Vercel Deployment
+      - name: 🚀 Deploy to Vercel
         run: |
-          curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
+          npm install -g vercel
+          vercel deploy --prod --yes \
+            --token=$VERCEL_TOKEN \
+            --org=$VERCEL_ORG_ID \
+            --project=$VERCEL_PROJECT_ID \
+            --cwd=client
         env:
-          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
