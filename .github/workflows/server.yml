@@ -13,6 +13,10 @@ jobs:
     name: Deploy Backend
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: backend
+
     steps:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v3
@@ -25,14 +29,10 @@ jobs:
           cache-dependency-path: backend/package-lock.json
 
       - name: 📦 Install dependencies
-        run: |
-          cd backend
-          npm ci
+        run: npm ci
 
-      - name: 🧪 Run tests
-        run: |
-          cd backend
-          npm test || true
+      - name: 🧪 Run backend tests
+        run: npm test || true
 
       - name: 🚀 Deploy to Render
         env:
@@ -45,5 +45,5 @@ jobs:
 
       - name: ✅ Verify deployment
         run: |
-          echo "Deployment triggered successfully. Check Render dashboard for status."
+          echo "✅ Deployment triggered successfully. Monitor status at:"
           echo "➡️ https://dashboard.render.com"
