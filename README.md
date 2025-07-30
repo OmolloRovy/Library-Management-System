@@ -63,7 +63,7 @@ cd libraryMS
 cd backend
 
 # Install dependencies
-pnpm install
+npm install
 
 # Create environment file
 cp .env.example .env
@@ -75,7 +75,7 @@ cp .env.example .env
 # NODE_ENV=development
 
 # Start the backend server
-pnpm start
+npm start
 ```
 
 The backend server will start on http://localhost:5000
@@ -89,7 +89,7 @@ Open a new terminal window:
 cd frontend
 
 # Install dependencies
-pnpm install
+npm install
 
 # Create environment file (optional)
 # Create a .env file in the frontend directory with:
@@ -97,7 +97,7 @@ pnpm install
 # VITE_APP_NAME=Library Management System
 
 # Start the frontend development server
-pnpm run dev
+npm run dev
 ```
 
 The frontend development server will start on http://localhost:5173
@@ -196,10 +196,10 @@ library-management-system/
 cd backend
 
 # Run in development mode with auto-restart
-pnpm run dev
+npm run dev
 
 # Run in production mode
-pnpm start
+npm start
 ```
 
 ### Frontend Development
@@ -208,16 +208,16 @@ pnpm start
 cd frontend
 
 # Start development server
-pnpm run dev
+npm run dev
 
 # Build for production
-pnpm run build
+npm run build
 
 # Preview production build
-pnpm run preview
+npm run preview
 
 # Run linting
-pnpm run lint
+npm run lint
 ```
 
 ## Styling with Tailwind CSS
@@ -292,10 +292,10 @@ VITE_APP_NAME=Library Management System
 
 ```bash
 # Build frontend for production
-cd frontend && pnpm run build
+cd frontend && npm run build
 
 # Start backend in production
-cd backend && pnpm start
+cd backend && npm start
 ```
 
 ## Contributing
