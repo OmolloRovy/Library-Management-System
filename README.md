@@ -32,6 +32,7 @@ A modern, full-stack Library Management System built with the MERN stack (MongoD
 - **bcryptjs** - Password hashing
 
 ### Frontend
+view live site here https://library-management-system-9s119ljus.vercel.app/login
 - **React 18** - UI library
 - **Vite** - Build tool and dev server
 - **Tailwind CSS v4.1** - Styling framework
